@@ -1,7 +1,8 @@
 import {
   defaultFont,
-  dangerColor,
   whiteColor,
+  grayColor,
+  dangerColor,
 } from "assets/jss/material-dashboard-react.js";
 
 import dropdownStyle from "assets/jss/material-dashboard-react/dropdownStyle.js";
@@ -13,15 +14,18 @@ const headerLinksStyle = (theme) => ({
       marginTop: "0",
     },
     [theme.breakpoints.down("sm")]: {
-      margin: "10px 15px !important",
+      margin: "0 15px !important",
       float: "none !important",
       paddingTop: "1px",
       paddingBottom: "1px",
       padding: "0!important",
-      width: "60%",
-      marginTop: "40px",
+      width: "80%", // Ajustar el ancho de la barra de búsqueda en dispositivos pequeños
+      marginTop: "10px",
       "& input": {
         color: whiteColor,
+        border: "1px solid " + grayColor[2], // Agregar borde sutil
+        borderRadius: "4px", // Bordes redondeados
+        padding: "8px 12px", // Ajustar el padding
       },
     },
   },
@@ -30,6 +34,7 @@ const headerLinksStyle = (theme) => ({
     ...defaultFont,
     fontSize: "14px",
     margin: "0px",
+    color: whiteColor, // Asegurar que el texto sea legible
   },
   buttonLink: {
     [theme.breakpoints.down("sm")]: {
@@ -38,17 +43,17 @@ const headerLinksStyle = (theme) => ({
       width: "-webkit-fill-available",
       "& svg": {
         width: "24px",
-        height: "30px",
-        marginRight: "15px",
-        marginLeft: "-15px",
+        height: "24px", // Ajustar tamaño del icono
+        marginRight: "10px",
+        marginLeft: "-10px",
       },
       "& .fab,& .fas,& .far,& .fal,& .material-icons": {
         fontSize: "24px",
-        lineHeight: "30px",
+        lineHeight: "24px",
         width: "24px",
-        height: "30px",
-        marginRight: "15px",
-        marginLeft: "-15px",
+        height: "24px",
+        marginRight: "10px",
+        marginLeft: "-10px",
       },
       "& > span": {
         justifyContent: "flex-start",
@@ -68,7 +73,7 @@ const headerLinksStyle = (theme) => ({
     margin: "0",
   },
   searchIcon: {
-    width: "17px",
+    width: "24px", // Ajustar tamaño del icono de búsqueda
     zIndex: "4",
   },
   notifications: {

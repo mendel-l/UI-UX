@@ -1,7 +1,6 @@
 import {
   container,
   defaultFont,
-  primaryColor,
   defaultBoxShadow,
   infoColor,
   successColor,
@@ -13,25 +12,26 @@ import {
 
 const headerStyle = () => ({
   appBar: {
-    backgroundColor: "transparent",
-    boxShadow: "none",
-    borderBottom: "0",
+    backgroundColor: "#6C5B7B", // Usar un color más suave
+    boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Añadir una sombra sutil
+    borderBottom: "1px solid " + grayColor[4], // Añadir una línea de separación
     marginBottom: "0",
-    position: "absolute",
+    position: "fixed", // Cambiar a "fixed" para un encabezado pegajoso
     width: "100%",
     paddingTop: "10px",
     zIndex: "1029",
-    color: grayColor[7],
+    color: whiteColor,
     border: "0",
-    borderRadius: "3px",
-    padding: "10px 0",
-    transition: "all 150ms ease 0s",
-    minHeight: "50px",
-    display: "block",
+    borderRadius: "0px",
+    padding: "10px 20px", // Ajustar el padding para un mejor espaciado
+    transition: "all 150ms ease",
+    minHeight: "60px", // Aumentar la altura mínima
+    display: "flex",
+    alignItems: "center",
   },
   container: {
     ...container,
-    minHeight: "50px",
+    minHeight: "60px", // Asegurar que el contenedor tenga la altura correcta
   },
   flex: {
     flex: 1,
@@ -39,21 +39,21 @@ const headerStyle = () => ({
   title: {
     ...defaultFont,
     letterSpacing: "unset",
-    lineHeight: "30px",
-    fontSize: "18px",
+    lineHeight: "36px", // Aumentar la altura de línea para mejor legibilidad
+    fontSize: "22px", // Aumentar el tamaño de la fuente
     borderRadius: "3px",
     textTransform: "none",
-    color: "inherit",
+    color: whiteColor,
     margin: "0",
     "&:hover,&:focus": {
       background: "transparent",
     },
   },
   appResponsive: {
-    top: "8px",
+    top: "10px",
   },
   primary: {
-    backgroundColor: primaryColor[0],
+    backgroundColor: "#6C5B7B", // Usar un color más suave
     color: whiteColor,
     ...defaultBoxShadow,
   },

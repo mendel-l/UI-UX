@@ -22,33 +22,33 @@ const useStyles = makeStyles(styles);
 export default function Sidebar(props) {
   const classes = useStyles();
   let location = useLocation();
+  
   // verifies if routeName is the one active (in browser input)
   function activeRoute(routeName) {
     return location.pathname === routeName;
   }
+
   const { color, logo, image, logoText, routes } = props;
-  var links = (
+
+  // Filter routes to remove unwanted ones
+  const filteredRoutes = routes.filter(route => 
+    !["/typography", "/icons", "/maps", "/rtl-page", "/upgrade-to-pro"].includes(route.path)
+  );
+
+  const links = (
     <List className={classes.list}>
-      {routes.map((prop, key) => {
-        var activePro = " ";
+      {filteredRoutes.map((prop, key) => {
         var listItemClasses;
-        if (prop.path === "/upgrade-to-pro") {
-          activePro = classes.activePro + " ";
-          listItemClasses = classNames({
-            [" " + classes[color]]: true,
-          });
-        } else {
-          listItemClasses = classNames({
-            [" " + classes[color]]: activeRoute(prop.layout + prop.path),
-          });
-        }
+        listItemClasses = classNames({
+          [" " + classes[color]]: activeRoute(prop.layout + prop.path),
+        });
         const whiteFontClasses = classNames({
           [" " + classes.whiteFont]: activeRoute(prop.layout + prop.path),
         });
         return (
           <NavLink
             to={prop.layout + prop.path}
-            className={activePro + classes.item}
+            className={classes.item}
             activeClassName="active"
             key={key}
           >
@@ -81,7 +81,8 @@ export default function Sidebar(props) {
       })}
     </List>
   );
-  var brand = (
+
+  const brand = (
     <div className={classes.logo}>
       <a
         href="https://www.creative-tim.com?ref=mdr-sidebar"
@@ -97,6 +98,7 @@ export default function Sidebar(props) {
       </a>
     </div>
   );
+
   return (
     <div>
       <Hidden mdUp implementation="css">
